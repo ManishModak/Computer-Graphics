@@ -1,0 +1,14 @@
+sudo apt-get update
+
+sudo apt-get install libglu1-mesa-dev freeglut3-dev mesa-common-dev
+
+sudo apt install g++ 
+  
+gedit   --------- open editor
+
+
+-------------------------------FOR OUTPUT-----------------------------
+
+g++ Bresanham.cpp -o Bresanham -lglut -lGLU -lGL
+
+./Bresanham
