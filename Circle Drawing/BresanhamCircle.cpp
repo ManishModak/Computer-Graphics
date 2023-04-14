@@ -2,19 +2,19 @@
 #include<stdio.h>
 int x , y , radius;
 
-void DrawPixel(int x, int y)
+void DrawPixel(int x, int y , int Xc , int Yc)
 {
 	glColor3f(1.0,0.0,0.0);
 	glPointSize(3);
 	glBegin(GL_POINTS);
-	glVertex2i(x,y) ;
-	glVertex2i(y,x) ;
-	glVertex2i(-x,y) ;
-	glVertex2i(-y,x) ;
-	glVertex2i(x,-y) ;
-	glVertex2i(y,-x) ;
-	glVertex2i(-x,-y) ;
-	glVertex2i(-y,-x) ;
+	glVertex2i(x+Xc,y+Yc) ;
+	glVertex2i(y+Xc,x+Yc) ;
+	glVertex2i(-x+Xc,y+Yc) ;
+	glVertex2i(-y+Xc,x+Yc) ;
+	glVertex2i(x+Xc,-y+Yc) ;
+	glVertex2i(y+Xc,-x+Yc) ;
+	glVertex2i(-x+Xc,-y+Yc) ;
+	glVertex2i(-y+Xc,-x+Yc) ;
 	glEnd() ;
 }
 
@@ -22,9 +22,9 @@ void BresenhamAlgo(int Xc , int Yc , int R)
 {
 	int x = 0 , y = R ;
 	
-	int Xplot = Xc + x ;
-	int Yplot = Yc + y ;
-	DrawPixel(Xplot,Yplot) ;
+	int Xplot = x ;
+	int Yplot = y ;
+	DrawPixel(Xplot,Yplot,Xc,Yc) ;
 	
 	
 	int parameter = 3-(2*R) ;
@@ -44,7 +44,7 @@ void BresenhamAlgo(int Xc , int Yc , int R)
 			Yplot = Yplot ;
 			parameter = parameter + (4*Xplot) +6 ;
 		}
-		DrawPixel(Xplot,Yplot) ;
+		DrawPixel(Xplot,Yplot,Xc,Yc) ;
 	}
 };
  
@@ -82,7 +82,3 @@ int main(int argc,char** argv)
 	
 	return 0;	
 }
-	
-	
-	
-	
